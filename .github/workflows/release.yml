@@ -13,8 +13,16 @@ jobs:
       attestations: write
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/attest-build-provenance@v4
+
+      - name: Attest build provenance
+        uses: actions/attest-build-provenance@v4
         with:
           subject-path: |
             **/SKILL.md
             **/SKILL_HE.md
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ github.ref_name }}
+          generate_release_notes: true
