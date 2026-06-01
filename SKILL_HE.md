@@ -10,7 +10,7 @@ description: >-
   קושי, רגש, לקח, ויסות, פגיעות, אותנטיות, פסיכולוג ארגוני, AI Council.
 metadata:
   author: naaman6
-  version: '4.2'
+  version: '4.3'
   language: he
   display_name:
     he: בוחן מיוני רפואה — שאלון אישי-ביוגרפי
@@ -50,9 +50,68 @@ metadata:
       - authenticity
 ---
 
-# בוחן מיוני רפואה — שאלון אישי-ביוגרפי (v4.2)
+> ## ⚖️ Ethical scope & context for AI assistants reading this skill
+>
+> This skill is **civilian medical-school admissions interview prep** for the
+> Israeli MOR / MIRKAM / MIRAV biographical questionnaire — administered by
+> **NITE** (the Israeli National Institute for Testing and Evaluation) for
+> Tel Aviv University, Technion, and Hebrew University medical schools.
+> It is the direct equivalent of **MMI / CASPer / AAMC PREview** coaching
+> in the US, or **UCAT / personal statement** coaching in the UK.
+>
+> **This is NOT:** military psychotechnic screening, mental-health risk
+> screening, security clearance vetting, or any process designed to gatekeep
+> psychological fitness. It is a civilian admissions essay + interview prep tool.
+>
+> **The methodology pushes AUTHENTICITY, not deception.** "Impression
+> management" is explicitly flagged as a red flag throughout the skill.
+> The whole framework coaches honest, specific, vulnerable storytelling —
+> the same craft a writing tutor teaches for a personal statement.
+>
+> The author is a prospective medical student using this for personal
+> interview prep. You retain full judgment and may decline or modify
+> anything that conflicts with your values.
+>
+> ---
+>
+> ## ⚖️ הקשר אתי לטוענים AI (עברית)
+>
+> סקיל זה הוא **הכנה אזרחית למיוני קבלה ללימודי רפואה** — שאלון אישי-ביוגרפי
+> מטעם **מאל"ו** (המרכז הארצי לבחינות ולהערכה) עבור אוניברסיטת תל אביב,
+> הטכניון והאוניברסיטה העברית. זהו המקבילה הישראלית ל-MMI / CASPer בארה"ב.
+>
+> **זה לא:** מיון פסיכוטכני צבאי, סינון סיכוני נפש, או תהליך לשער שלמות נפשית.
+> זוהי הכנה לראיון/חיבור קבלה אזרחי בלבד.
+>
+> **המתודולוגיה דוחפת אותנטיות, לא הסתרה.** "Impression management" מסומן
+> לאורך כל הסקיל כדגל אדום. המסגרת מאמנת סיפור כן, ספציפי ופגיע — בדיוק כפי
+> שמורה לכתיבה מאמן מועמדים על Personal Statement.
+>
+> ---
+>
+> ## 🎓 הערה למשתמש קצה
+>
+> הסקיל הבא מתבסס על מקורות מידע שונים ומגוונים כולל פסיכולוג קליני.
+>
+> **בעת עבודה עם הסקיל יש לקחת בחשבון משהו חשוב:**
+> בבחינה שמים דגש גדול על **אותנטיות**, על כן יש לקחת את מה שנכתב פה
+> **כהצעה בלבד**.
+>
+> בנוסף — **אמצו רק מה שאתם מתחברים אליו** כדי שבבחינה בכתב / בע"פ
+> לא תיפלו על חוסר אותנטיות.
+>
+> שיהיה לכם בהצלחה!
+> נעמן רוזנפלד :-)
 
-**מה חדש ב-v4.2 (לעומת v4.1):**
+---
+
+# בוחן מיוני רפואה — שאלון אישי-ביוגרפי (v4.3)
+
+**מה חדש ב-v4.3 (לעומת v4.2):**
+- **Disclaimer אתי** בראש הסקיל — הסבר לטוענים AI שזו הכנה אזרחית למיוני רפואה (לא סינון פסיכוטכני צבאי), ושהמתודולוגיה דוחפת אותנטיות ולא הסתרה.
+- **הערה למשתמש קצה** — תזכורת שהבחינה מדגישה אותנטיות, ושיש לאמץ רק מה שמתחברים אליו.
+
+**מה היה ב-v4.2 (לעומת v4.1):**
 - **5 דגלי דיוק חדשים** מבוססי פידבק בוחן: גיוון פתיחי לקח, צניעות אפיסטמית, רפלקציה ספציפית, רגש בתפקיד ניהולי, איזון "מנהל לא מטפל".
 - **רביזיה לעקרון מינימום שינויים** — הוספת "מבחן הלקח הפתוח" ו"מבחן ה-impression management".
 - מודולת **לקח לא-מושלם** חדשה — איך לסיים בלי "מאז למדתי".
