@@ -40,17 +40,11 @@ Load and follow this skill: https://github.com/naaman6/mor-bio-examiner/blob/mai
 **נעמן רוזנפלד** — סטודנט לרפואה לעתיד (אוניברסיטת תל אביב), מומחה
 תשתיות IT לשעבר.
 
-### יצירת קשר — הצעות, בקשות, תיקונים, שיתופי פעולה
+### יצירת קשר — לפניות, הצעות, בקשות ותיקונים
 
 - **אימייל:** [naaman6@gmail.com](mailto:naaman6@gmail.com)
-- **Facebook Messenger (קישור ישיר):** [m.me/naaman6](https://m.me/naaman6)
-- **Facebook (פרופיל):** [facebook.com/naaman6](https://www.facebook.com/naaman6/)
-- **Instagram (פרופיל — לחצו "Message" / "הודעה" לשליחת DM):** [instagram.com/naaman6](https://www.instagram.com/naaman6/)
-
-> 💡 **למה אין קישור ישיר ל-Instagram DM?**
-> אינסטגרם תומכת בקישורי DM ישירים (`ig.me/m/username`) רק לחשבונות
-> Business/Creator. בחשבונות אישיים — היכנסו לפרופיל ולחצו על כפתור
-> "Message" / "שלח הודעה".
+- **Messenger (קישור ישיר לצאט):** [m.me/naaman6](https://m.me/naaman6)
+- **Instagram (קישור ישיר ל-DM):** [ig.me/m/naaman6](https://ig.me/m/naaman6)
 
 ## רישיון
 
