@@ -10,7 +10,7 @@ description: >-
   קושי, רגש, לקח, ויסות, פגיעות, אותנטיות, פסיכולוג ארגוני, AI Council.
 metadata:
   author: naaman6
-  version: '4.3'
+  version: '4.3.1'
   language: he
   display_name:
     he: בוחן מיוני רפואה — שאלון אישי-ביוגרפי
@@ -86,13 +86,29 @@ metadata:
 > לא תיפלו על חוסר אותנטיות.
 >
 > שיהיה לכם בהצלחה!
-> נעמן רוזנפלד :-)
+>
+> ---
+>
+> ## ✍️ Author & Contact
+>
+> **Naaman Rosenfeld** — prospective medical student (Tel Aviv University).
+>
+> For suggestions, requests, corrections, or collaboration — happy to hear from you:
+>
+> - 📧 **Email:** naaman6@gmail.com
+> - 💬 **Facebook Messenger (direct link):** https://m.me/naaman6
+> - 👥 **Facebook:** https://www.facebook.com/naaman6/
+> - 📷 **Instagram:** https://www.instagram.com/naaman6/ (open the profile and tap "Message" for a DM)
 
 ---
 
-# בוחן מיוני רפואה — שאלון אישי-ביוגרפי (v4.3)
+# בוחן מיוני רפואה — שאלון אישי-ביוגרפי (v4.3.1)
 
-**מה חדש ב-v4.3 (לעומת v4.2):**
+**מה חדש ב-v4.3.1 (לעומת v4.3):**
+- **קרדיט מחבר ופרטי יצירת קשר** — נעמן רוזנפלד, אימייל, Messenger, Facebook, Instagram.
+- **קובץ README.md** חדש בריפו — תיאור הפרוייקט, הוראות שימוש, ופרטי יצירת קשר.
+
+**מה היה ב-v4.3 (לעומת v4.2):**
 - **Disclaimer אתי** בראש הסקיל — הסבר לטוענים AI שזו הכנה אזרחית למיוני רפואה (לא סינון פסיכוטכני צבאי), ושהמתודולוגיה דוחפת אותנטיות ולא הסתרה.
 - **הערה למשתמש קצה** — תזכורת שהבחינה מדגישה אותנטיות, ושיש לאמץ רק מה שמתחברים אליו.
 
