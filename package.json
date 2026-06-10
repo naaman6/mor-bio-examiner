@@ -1,6 +1,6 @@
 {
   "name": "mor-bio-examiner",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "AI Skill: בוחן מיוני רפואה — שאלון אישי-ביוגרפי (מו\"ר / מרק\"ם / מר\"ב). Evidence-based examiner skill for Israeli medical school biographical questionnaires.",
   "type": "module",
   "bin": {
