@@ -1,0 +1,43 @@
+{
+  "name": "mor-bio-examiner",
+  "version": "1.0.0",
+  "description": "AI Skill: בוחן מיוני רפואה — שאלון אישי-ביוגרפי (מו\"ר / מרק\"ם / מר\"ב). Evidence-based examiner skill for Israeli medical school biographical questionnaires.",
+  "type": "module",
+  "bin": {
+    "mor-bio-examiner": "./bin/cli.mjs"
+  },
+  "files": [
+    "bin/",
+    "skill/",
+    "README.md",
+    "LICENSE"
+  ],
+  "keywords": [
+    "ai-skill",
+    "claude",
+    "claude-code",
+    "cursor",
+    "agent-skill",
+    "hebrew",
+    "israeli",
+    "medical-school",
+    "mor",
+    "mirkam",
+    "mreb",
+    "biographical-questionnaire",
+    "perplexity"
+  ],
+  "author": "naaman6",
+  "license": "MIT",
+  "homepage": "https://github.com/naaman6/mor-bio-examiner#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/naaman6/mor-bio-examiner.git"
+  },
+  "bugs": {
+    "url": "https://github.com/naaman6/mor-bio-examiner/issues"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

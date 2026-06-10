@@ -1,62 +1,76 @@
-# בוחן מיוני רפואה — שאלון אישי-ביוגרפי
+# mor-bio-examiner
 
-> **MOR Biography Examiner** — An AI skill for Israeli medical-school admissions
-> interview prep (MOR / MIRKAM / MIRAV biographical questionnaire).
+> בוחן מיוני רפואה — שאלון אישי-ביוגרפי (מו"ר / מרק"ם / מר"ב)
+> AI Skill for Israeli medical school biographical questionnaire preparation.
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
-[![Latest Release](https://img.shields.io/github/v/release/naaman6/mor-bio-examiner)](https://github.com/naaman6/mor-bio-examiner/releases/latest)
-[![Language: Hebrew](https://img.shields.io/badge/Language-Hebrew-blue.svg)](SKILL_HE.md)
+[![npm version](https://img.shields.io/npm/v/mor-bio-examiner.svg)](https://www.npmjs.com/package/mor-bio-examiner)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-## מה זה?
+## מה זה
 
-סקיל AI לפסיכולוג ארגוני ובוחן מיוני רפואה בישראל — שאלון אישי-ביוגרפי
-(מו"ר / מרק"ם / מר"ב). מספק משוב, עריכה ובנייה של תשובות לשאלון הביוגרפי
-לפי מתודולוגיה של 7 שכבות, Coherence Test, ובדיקת אותנטיות מבוססת מחקר.
+סקיל AI מבוסס-ראיות לבחינת תשובות לשאלון האישי-ביוגרפי בבחינות המיון לרפואה (מו"ר, מרק"ם, מר"ב). הסקיל מספק:
 
-**מיועד ל:** מועמדים ללימודי רפואה באוניברסיטת תל אביב, הטכניון
-והאוניברסיטה העברית.
+- **2 כובעי בחינה:** בוחן מאל"ו מנוסה + פסיכולוג ארגוני
+- **פורמט 2025/2026 מאומת:** 7 סעיפים לתפקידים, מבנה גמיש לשאלות מקרה
+- **7 שכבות איכות** לשאלות מקרה + Coherence Test
+- **דגלים אדומים** מבוססי מחקר (Roulin, Levashina, Eurich, Dweck)
+- **בנק שאלות היסטוריות + סיפורי מועמד**
+- **21 תכונות רפואיות** + AAMC Core Competencies
 
-## איך משתמשים?
+## התקנה מהירה
 
-הדבק את הפרומפט הבא בכל מנוע AI (Claude, ChatGPT, Perplexity, Gemini):
+```bash
+# התקנה אוטומטית לכל סוכן שמזוהה בפרויקט
+npx mor-bio-examiner install
 
+# התקנה ספציפית
+npx mor-bio-examiner install -a claude-code
+npx mor-bio-examiner install -a cursor --global
+npx mor-bio-examiner install -a perplexity
 ```
-Load and follow this skill: https://github.com/naaman6/mor-bio-examiner/blob/main/SKILL_HE.md — respond in Hebrew.
+
+## סוכנים נתמכים
+
+| סוכן | תיקייה |
+|---|---|
+| Claude Code / Desktop | `.claude/skills/` |
+| Cursor | `.cursor/skills/` |
+| Codex | `.codex/skills/` |
+| OpenCode | `.opencode/skills/` |
+| Perplexity Computer | `skills/user/` |
+
+## פקודות
+
+```bash
+npx mor-bio-examiner install            # התקנה (אוטומטי או -a <agent>)
+npx mor-bio-examiner info               # פירוט קבצי הסקיל
+npx mor-bio-examiner list               # רשימת סוכנים נתמכים
+npx mor-bio-examiner help               # עזרה
 ```
 
-או הורד את הסקיל מ-[Releases](https://github.com/naaman6/mor-bio-examiner/releases/latest)
-וטען אותו ידנית.
+## דוגמת שימוש (אחרי התקנה)
 
-## מה כולל הסקיל?
+פתח את הסוכן שלך ושאל:
+- "תבחן את התשובה שלי לשאלה הביוגרפית"
+- "תרגל אותי בשאלת מקרה"
+- "תעזור לי לנסח תשובה לסעיף ב של תפקיד המורה שלי"
 
-- **7 שכבות ניתוח** — רקע, "איפה זה תופס אותי?", רגש, פעולה, התלבטות, לקח, ויסות
-- **Coherence Test** — מבחן קישוריות אורגנית בין שכבות
-- **בנק 21 שאלות לדוגמה** — סיווג לפי קטגוריות (תפקיד / מקרה / קושי / רגש / לקח)
-- **דגלי דיוק** — Impression management detector, צניעות אפיסטמית, רפלקציה ספציפית
-- **מתודולוגיית אותנטיות** — מבוססת מחקר peer-reviewed
+הסקיל יופעל אוטומטית על מילות מפתח: ביוגרפי, מיונים, רפואה, מור, מרקם, מרב, שאלון אישי.
 
-## מחבר
+## רקע מחקרי
 
-**נעמן רוזנפלד** — סטודנט לרפואה לעתיד (אוניברסיטת תל אביב), מומחה
-תשתיות IT לשעבר.
-
-### יצירת קשר — לפניות, הצעות, בקשות ותיקונים
-
-- **אימייל:** [naaman6@gmail.com](mailto:naaman6@gmail.com)
-- **Messenger (קישור ישיר לצאט):** [m.me/naaman6](https://m.me/naaman6)
-- **Instagram (קישור ישיר ל-DM):** [ig.me/m/naaman6](https://ig.me/m/naaman6)
+הסקיל בנוי על מחקר peer-reviewed עדכני (2018-2026) כולל:
+- Roulin (2015, 2021) — Impression Management
+- Eurich (2018) — Self-Awareness
+- Dweck — Mindset
+- Mayer-Salovey — Emotional Intelligence
+- AAMC Core Competencies (2023)
+- ולידציה מול 11 דוגמאות 230+ של פייר ועמיתים
 
 ## רישיון
 
-[MIT License](LICENSE) — חופשי לשימוש, שינוי והפצה.
+MIT © naaman6
 
-## הערה אתית
+## תרומה / Issues
 
-ראו את ה-disclaimer בראש [SKILL_HE.md](SKILL_HE.md) ו-[SKILL.md](SKILL.md).
-הסקיל הוא הכנה אזרחית למיוני קבלה אקדמיים (מקבילה ישראלית ל-MMI / CASPer)
-ולא כלי לעקיפת סינון פסיכולוגי. המתודולוגיה דוחפת **אותנטיות**, לא הסתרה.
-
----
-
-> 🎓 **שיהיה לכם בהצלחה במיונים!**
-> — נעמן רוזנפלד :-)
+[GitHub Issues](https://github.com/naaman6/mor-bio-examiner/issues)
