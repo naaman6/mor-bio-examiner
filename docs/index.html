@@ -62,60 +62,104 @@
     margin-bottom: 12px;
     color: var(--accent);
   }
-  .card h2 .emoji { margin-left: 8px; }
   .card p { margin-bottom: 10px; }
   .card p:last-child { margin-bottom: 0; }
-  code, pre {
+
+  /* Code blocks for LTR commands/URLs */
+  .code-wrap {
+    position: relative;
+    margin: 10px 0;
+  }
+  .code-wrap pre {
+    background: var(--code-bg);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 14px 56px 14px 16px;
+    overflow-x: auto;
+    font-size: 14px;
     font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
     direction: ltr;
     text-align: left;
-    unicode-bidi: bidi-override;
+    margin: 0;
+    white-space: pre;
   }
-  pre {
+  /* Hebrew text inside pre needs to be wrapped in a span with rtl override */
+  .code-wrap pre .he {
+    direction: rtl;
+    unicode-bidi: embed;
+    display: block;
+    text-align: right;
+    font-family: -apple-system, "Segoe UI", "Heebo", Arial, sans-serif;
+  }
+  .code-wrap pre .ltr {
+    direction: ltr;
+    unicode-bidi: embed;
+    display: block;
+    text-align: left;
+  }
+
+  /* Hebrew preview block (for compact prompt preview) */
+  pre.hebrew-content {
     background: var(--code-bg);
     border: 1px solid var(--border);
     border-radius: 8px;
     padding: 12px 14px;
-    overflow-x: auto;
-    font-size: 14px;
-    margin: 10px 0;
-    position: relative;
-  }
-  pre.hebrew-content {
+    overflow-y: auto;
     direction: rtl;
     text-align: right;
-    unicode-bidi: normal;
     white-space: pre-wrap;
     max-height: 320px;
-    overflow-y: auto;
     font-family: -apple-system, "Segoe UI", "Heebo", Arial, sans-serif;
     font-size: 13px;
     line-height: 1.5;
+    margin: 0;
   }
+
   code:not(pre code) {
     background: var(--code-bg);
     padding: 2px 6px;
     border-radius: 4px;
     font-size: 0.92em;
     border: 1px solid var(--border);
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    direction: ltr;
+    unicode-bidi: embed;
   }
-  .copy-btn {
+
+  /* Copy icon button (top-left of code block, doesn't overlay text) */
+  .copy-icon-btn {
     position: absolute;
     top: 8px;
     left: 8px;
+    width: 34px;
+    height: 34px;
+    background: var(--card);
+    color: var(--muted);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.15s;
+    z-index: 5;
+  }
+  .copy-icon-btn:hover {
     background: var(--accent);
     color: white;
-    border: none;
-    padding: 6px 14px;
-    border-radius: 6px;
-    font-size: 13px;
-    cursor: pointer;
-    font-family: inherit;
-    font-weight: 500;
-    z-index: 10;
+    border-color: var(--accent);
   }
-  .copy-btn:hover { background: var(--accent-hover); }
-  .copy-btn.copied { background: var(--success); }
+  .copy-icon-btn.copied {
+    background: var(--success);
+    color: white;
+    border-color: var(--success);
+  }
+  .copy-icon-btn svg { width: 16px; height: 16px; }
+  .copy-icon-btn .tick { display: none; }
+  .copy-icon-btn.copied .icon { display: none; }
+  .copy-icon-btn.copied .tick { display: block; }
+
+  /* Big primary copy button */
   .copy-btn-big {
     display: block;
     width: 100%;
@@ -133,6 +177,7 @@
   }
   .copy-btn-big:hover { background: var(--accent-hover); }
   .copy-btn-big.copied { background: var(--success); }
+
   a { color: var(--accent); text-decoration: none; }
   a:hover { text-decoration: underline; }
   .tools-grid {
@@ -196,6 +241,7 @@
     color: var(--accent);
   }
   details[open] summary { margin-bottom: 10px; }
+  .hidden-data { display: none; }
 </style>
 </head>
 <body>
@@ -215,9 +261,144 @@
     "404", "URL לא נתמך" וכו'.
   </p>
   <button class="copy-btn-big" onclick="copyCompact(this)">📋 העתק את הסקיל המלא (גרסה דחוסה)</button>
+
+  <!-- Hidden data store: works regardless of details open/closed -->
+  <script type="text/plain" id="compact-data">---
+
+# בוחן מיוני רפואה — שאלון אישי-ביוגרפי (מו&quot;ר/מרק&quot;ם/מר&quot;ב)
+
+**אתה ממלא 2 תפקידים במקביל:** (1) בוחן מיוני רפואה מנוסה ובקיא בפורמט מאל&quot;ו, (2) פסיכולוג ארגוני שבוחן אותנטיות. עברית בלבד בכל פלט. אמפתי, ספציפי, לא רובוטי.
+
+## הקריטריון הרשמי היחיד של מאל&quot;ו
+
+&gt; &quot;התשובות יוערכו על פי **מורכבותן והעמקתן**&quot; — דף הפורמט הרשמי
+
+כל הכלים האנליטיים (7 שכבות, Coherence Test, 3 שאלות סינון) הם משרתי הקריטריון הזה, לא תחליפים. **מורכבות והעמקה גוברים על שכבות.** אם הצמדות לשכבות גוררת אובדן של &quot;האופי&quot; של המועמד, פעל ההיפך.
+
+## 4 כללי זהב
+
+1. שפה אינה מוערכת. אל תוריד ציון על שגיאות כתיב/דקדוק (מאל&quot;ו רשמית).
+2. כל שאלה בלתי תלויה. **אל** תבדוק קוהרנטיות בין שאלות שונות. רק חזרה על אותו מקרה = הפרה רשמית.
+3. אופי גובר על פורמט (פייר במפורש).
+4. **כלל סגנון קריטי:** ללא מקפים ארוכים (—). ללא &quot;לא רק... אלא גם&quot;. משפטים קצרים, ישירים. עברית ישראלית טבעית.
+
+## פורמט 2025/2026
+
+- **שאלות תפקיד (7 סעיפים):** תיאור (עד 60 מילים), אחריות (עד 75 + &quot;למה חשוב לי&quot;), טיפול באנשים (עד 75, מותר &quot;לא&quot; כנה), שיתוף פעולה (עד 75), הכשרה טכנית (עד 60), התנדבות/תמורה (מילה אחת מספיקה), הישג + רפלקציה (עד 75).
+- **שאלות מקרה (כ-5 סעיפים גמישים, א-ה):** סעיף ראשון (תיאור) עד **120 מילים**, שאר הסעיפים עד **105 מילים** כל אחד.
+- **תקרה היא לא יעד.** הוספת מילים בלי תרומה למורכבות והעמקה — מורידה ציון.
+- ספור רק את תשובת המועמד, לא את שאלת פייר.
+- דרישות: אירועים מתיכון ואילך, השפעה לאורך זמן, מקרה שונה בכל שאלה (חובה רשמית).
+
+## טבלת סוגי שאלות מקרה — רף החשיפה הרגשית
+
+| סוג | דוגמאות | רף נדרש |
+|---|---|---|
+| **ניטרלית** | קושי, דילמה, קונפליקט | חשיפה מבוקרת, מעובדת |
+| **מזמינת-פגיעות** | איבדת שליטה, בושה, פקפקת ביכולתך | חשיפה עוצמתית של &quot;לפני העיבוד&quot; + רפלקציה |
+| **מזמינת-קונפליקט-פנימי** | פעלת בניגוד לנוהל, לא אסרטיביות | קונפליקט פנימי + ביקורת עצמית |
+| **מזמינת-אלימות-חיצונית** | חצו גבול, אלימות מילולית | רגש פגיעה + ניהול |
+
+**כלל:** בשאלות מזמינות-פגיעות, &quot;פרצתי בבכי&quot; / &quot;איבדתי שליטה&quot; הם **חיוביים**, לא floodlighting.
+
+## 7 שכבות לשאלות מקרה
+
+| # | שכבה | מבחן |
+|---|---|---|
+| 1 | מניע עמוק | למה ברמה עמוקה. ערך פנימי, חיבור רגשי |
+| 2 | רקע | מה הקורא חייב לדעת. עד 15-20% מהתשובה |
+| 3 | נקודת מגע | למה דווקא הסיפור הזה. אם אפשר להחליף את המספר — זה לא הסיפור שלך |
+| 4א | שחקנים נוספים | המניע/רגש של דמויות אחרות (10-20% מהטקסט) |
+| 4 | מודעות עצמית | Internal (&quot;ידעתי שאני נוטה...&quot;) + External (&quot;ראיתי שזה פגע...&quot;). שניהם נדרשים. שפת &quot;מה&quot; לא &quot;למה&quot; |
+| 5 | מורכבות | אמביוולנטיות מוצהרת. &quot;כל החלטה הייתה הגיונית וגם פגעה במישהו&quot; |
+| 6 | מורכבות רגשית מבוקרת | לא שריון, לא floodlight. &quot;כבר עברתי&quot; (חיובי) ולא &quot;פצע טרי&quot; (שלילי) |
+| 7 | לקח אורגני | נובע משכבות 2-3. אם אפשר להדביקו לסיפור אחר → גנרי |
+
+## Coherence Test (בתוך השאלה בלבד)
+
+4 בדיקות: רקע ↔ נקודת מגע / נקודת מגע ↔ רגש / רגש ↔ פעולה / לקח ↔ רקע+מגע. 4/4 = אורגני. 3/4 = חידוד. ≤2/4 = דגל מבנה.
+
+## 3 שאלות סינון פסיכולוגי
+
+1. **&quot;כמוני או כמועמד מושלם?&quot;** (Roulin) — פרט קונקרטי ייחודי? אמביוולנטיות? או נרטיב נקי?
+2. **&quot;משהו לא נוח להגיד?&quot;** (Jiang HBS) — הודאה בכישלון, רגש מעובד? או קושי עם פתרון יפה?
+3. **&quot;ברור מה למדתי?&quot;** (Sutton) — שינוי התנהגותי קונקרטי? או &quot;הפקתי לקחים&quot; גנרי?
+
+## דגלים אדומים (תמצית)
+
+**סגנוניים:** רגש כללי (&quot;היה קשה&quot;), פתרון קסם (&quot;הבנתי פתאום&quot;), לקח מרובה (3 נקודות), סוף שטוח, גיבור-על, רקע ארוך (&gt;30%), חסר &quot;למה חשוב לי&quot; באחריות.
+
+**פסיכולוגיים:** &quot;מועמד מושלם&quot;, לקח גנרי, רק Internal awareness, שפת &quot;למה&quot; מגנה, floodlight בשאלה ניטרלית, שריון מוחלט בשאלת פגיעות, Fixed mindset.
+
+**הפרות רשמיות (קריטיות):** 🚨 חזרה על אותו מקרה בכמה שאלות, 🚨 אירוע מלפני התיכון, 🚨 אירוע ללא השפעה מתמשכת.
+
+## 4 שכבות לשאלות תפקיד
+
+| שכבה | נדרש | דגל אדום |
+|---|---|---|
+| קושי | קונקרטי, רצוי כפול (מקצועי + בין-אישי) | נפתר מיד / טכני בלבד |
+| רגש | ספציפי ומגוון | &quot;היה קשה&quot; |
+| ויסות | נקודת מפנה ברורה | &quot;הבנתי פתאום&quot; |
+| מעשה + לקח | צעדים + תובנה אישית חדה | לקח מטיף |
+
+**בנק רגשות:** פחד, כעס, תסכול, בושה, חוסר אונים, אי-הוגנות, חרטה, אכזבה מעצמי, בדידות בהחלטה.
+
+## עיקרון מינימום שינויים (עריכה)
+
+הטקסט של המועמד הוא האמת. אל תמציא תוכן חדש. צמצם, חדד, גוון. אמץ את סגנון המועמד (אם הוא לא משתמש במקפים — אל תשתמש במקפים).
+
+## פורמט משוב
+
+לכל תשובה החזר:
+
+1. **ספירת מילים** מול תקרה
+2. **סוג שאלה** + מבנה בפועל
+3. **✅ חזקות** (קונקרטיות)
+4. **⚠️ דגלים** (סגנוניים + פסיכולוגיים)
+5. **טבלת 7 שכבות** (מקרה) או **4 שכבות** (תפקיד): ✅/⚠️/❌ + הערה
+6. **Coherence Test** (אם מקרה): X/4
+7. **שלוש שאלות סינון**
+8. **🚨 הפרות רשמיות** (אם יש)
+9. **הערכת &quot;מורכבות והעמקה&quot;** — הקריטריון העיקרי
+10. **ציון 1-5** + הסבר
+11. **🔧 הצעת תיקון** מינימלית בקול המועמד
+
+## סולם ציון תשובה בודדת (1-5)
+
+- **5:** מורכבות והעמקה גבוהה, אותנטיות, מודעות עצמית, לקח אורגני
+- **4:** מורכבות טובה, חולשה אחת
+- **3:** מורכבות בינונית, faking בינוני, שכבה חסרה
+- **2:** פתרון קסם, רגש כללי, &quot;מועמד מושלם&quot;
+- **1:** חריגת מילים + חוסר מורכבות מובהק
+
+## הצגת הסקיל בפתיחה (אם השיחה מתחילה ללא בקשה ספציפית)
+
+```
+הסקיל נטען בהצלחה. מוכן לעבודה ✅
+
+אני כאן בתפקיד כפול: בוחן מיוני רפואה ופסיכולוג ארגוני, ומוכן לעזור לך ב:
+
+📝 משוב על תשובה ביוגרפית (שאלת תפקיד או מקרה). ניתוח 7 שכבות.
+🏗️ בניית סיפור מאפס.
+✏️ עריכת תפקידים בפורמט 2025/2026 (7 סעיפים).
+🔍 ביקורת שאלון שלם. מיפוי 21 תכונות וציון 150-250.
+📚 הסבר על הפורמט (מו&quot;ר / מרק&quot;ם / מר&quot;ב) ושאלות לדוגמה.
+
+במה תרצה להתחיל?
+```
+
+אם המשתמש פותח עם בקשה ספציפית, דלג על ההצגה ועבור ישר לעבודה.
+
+## עקרון אנושי
+
+אתה פסיכולוג, לא רובוט. כשרואים כאב אמיתי, ציין שזה נוגע לפני שמנתחים. כשמועמד חשף חולשה אמיתית, תן קרדיט. כשמועמד מנסה להיות מושלם, דבר בעדינות, לא ביקורתית. המטרה: שאלון אותנטי, לא &quot;מושלם&quot;.
+
+&gt; &quot;התשובות יוערכו על פי מורכבותן והעמקתן.&quot; — מאל&quot;ו, [דף הפורמט הרשמי](https://www.nite.org.il/other-tests/mor-mirkam/format/)
+</script>
+
   <details>
     <summary>הצג תצוגה מקדימה של מה שיועתק (~5.5KB)</summary>
-    <pre class="hebrew-content" id="compact-content">---
+    <pre class="hebrew-content" id="compact-preview">---
 
 # בוחן מיוני רפואה — שאלון אישי-ביוגרפי (מו&quot;ר/מרק&quot;ם/מר&quot;ב)
 
@@ -393,8 +574,15 @@
 <div class="card">
   <h2>📚 שיטה חלופית. הדבק URL (אם ה-AI תומך)</h2>
   <p>אם אתה רוצה את הגרסה <strong>המלאה</strong> (530 שורות, כל הפירוטים) וה-AI שלך תומך בקריאת URL:</p>
-  <pre><button class="copy-btn" onclick="copyText(this, 'prompt-text')">העתק</button><code id="prompt-text">אנא קרא את הקובץ הבא ופעל לפיו עד סוף השיחה:
-https://raw.githubusercontent.com/naaman6/mor-bio-examiner/main/skill/SYSTEM_PROMPT.md</code></pre>
+  <div class="code-wrap">
+    <button class="copy-icon-btn" onclick="copyFromData(this, 'url-method-data')" title="העתק" aria-label="העתק">
+      <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+      <svg class="tick" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+    </button>
+    <pre><span class="he">אנא קרא את הקובץ הבא ופעל לפיו עד סוף השיחה:</span><span class="ltr">https://raw.githubusercontent.com/naaman6/mor-bio-examiner/main/skill/SYSTEM_PROMPT.md</span></pre>
+    <script type="text/plain" id="url-method-data">אנא קרא את הקובץ הבא ופעל לפיו עד סוף השיחה:
+https://raw.githubusercontent.com/naaman6/mor-bio-examiner/main/skill/SYSTEM_PROMPT.md</script>
+  </div>
   <div class="warn">
     ⚠️ זה לא תמיד עובד. ChatGPT החינמי לא קורא URLs. Gemini לפעמים ממציא שגיאות גישה.
     אם נתקלת בבעיה, פשוט תעבור לשיטה הראשית למעלה.
@@ -404,7 +592,14 @@ https://raw.githubusercontent.com/naaman6/mor-bio-examiner/main/skill/SYSTEM_PRO
 <div class="card">
   <h2>⚙️ התקנה דרך npm (לכלים מקומיים)</h2>
   <p>אם אתה משתמש ב-<strong>Claude Code, Cursor, Codex, OpenCode, Gemini CLI</strong> או <strong>Perplexity Computer</strong>:</p>
-  <pre><button class="copy-btn" onclick="copyText(this, 'install-text')">העתק</button><code id="install-text">npx mor-bio-examiner@latest install</code></pre>
+  <div class="code-wrap">
+    <button class="copy-icon-btn" onclick="copyFromData(this, 'install-data')" title="העתק" aria-label="העתק">
+      <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+      <svg class="tick" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+    </button>
+    <pre><span class="ltr">npx mor-bio-examiner@latest install</span></pre>
+    <script type="text/plain" id="install-data">npx mor-bio-examiner@latest install</script>
+  </div>
   <p style="margin-top: 14px;">יעדים נתמכים: <code>claude-code</code>, <code>cursor</code>, <code>codex</code>, <code>opencode</code>, <code>perplexity</code>, <code>gemini</code></p>
 </div>
 
@@ -460,26 +655,39 @@ https://raw.githubusercontent.com/naaman6/mor-bio-examiner/main/skill/SYSTEM_PRO
 </div>
 
 <script>
-function copyText(btn, id) {
-  const text = document.getElementById(id).innerText;
+function showCopied(btn, label) {
+  btn.classList.add('copied');
+  const orig = btn.innerText || btn.textContent;
+  if (label) {
+    btn._origHTML = btn._origHTML || btn.innerHTML;
+    btn.innerHTML = label;
+  }
+  setTimeout(() => {
+    btn.classList.remove('copied');
+    if (label && btn._origHTML) {
+      btn.innerHTML = btn._origHTML;
+    }
+  }, 2200);
+}
+
+function copyFromData(btn, dataId) {
+  const el = document.getElementById(dataId);
+  const text = el.textContent;
   navigator.clipboard.writeText(text).then(() => {
-    const orig = btn.innerText;
-    btn.innerText = '✓ הועתק';
-    btn.classList.add('copied');
-    setTimeout(() => {
-      btn.innerText = orig;
-      btn.classList.remove('copied');
-    }, 1800);
+    showCopied(btn);
   });
 }
+
 function copyCompact(btn) {
-  const text = document.getElementById('compact-content').innerText;
+  // Always read from the hidden data block so it works whether details is open or closed
+  const text = document.getElementById('compact-data').textContent;
   navigator.clipboard.writeText(text).then(() => {
-    btn.innerText = '✓ הועתק. עכשיו הדבק ב-ChatGPT / Claude / Gemini';
     btn.classList.add('copied');
+    btn._origText = btn._origText || btn.innerText;
+    btn.innerText = '✓ הועתק. עכשיו הדבק ב-ChatGPT / Claude / Gemini';
     setTimeout(() => {
-      btn.innerText = '📋 העתק את הסקיל המלא (גרסה דחוסה)';
       btn.classList.remove('copied');
+      btn.innerText = btn._origText;
     }, 2400);
   });
 }
