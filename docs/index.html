@@ -7,7 +7,6 @@
 <meta name="description" content="AI Skill בעברית לבחינת שאלון אישי-ביוגרפי במיוני רפואה בישראל. עובד עם קלוד, ChatGPT, ג'מיני ועוד.">
 <meta name="keywords" content="מור, מרקם, מרב, שאלון אישי-ביוגרפי, מיוני רפואה, ישראל, AI skill">
 
-<!-- Open Graph for previews -->
 <meta property="og:title" content="בוחן מיוני רפואה — שאלון אישי-ביוגרפי">
 <meta property="og:description" content="AI Skill בעברית לבחינת שאלון אישי-ביוגרפי במיוני רפואה. עובד עם כל כלי AI.">
 <meta property="og:type" content="website">
@@ -23,6 +22,7 @@
     --border: #2a3540;
     --code-bg: #0a0e13;
     --success: #4ade80;
+    --warning: #fbbf24;
   }
   * { box-sizing: border-box; margin: 0; padding: 0; }
   body {
@@ -32,7 +32,7 @@
     line-height: 1.6;
     padding: 24px 16px 80px;
   }
-  .container { max-width: 760px; margin: 0 auto; }
+  .container { max-width: 820px; margin: 0 auto; }
   header { text-align: center; margin-bottom: 32px; }
   h1 { font-size: 28px; margin-bottom: 8px; }
   .subtitle { color: var(--muted); font-size: 16px; }
@@ -52,6 +52,10 @@
     border-radius: 12px;
     padding: 20px 22px;
     margin-bottom: 18px;
+  }
+  .card.featured {
+    border: 2px solid var(--accent);
+    box-shadow: 0 0 24px rgba(74, 158, 255, 0.12);
   }
   .card h2 {
     font-size: 18px;
@@ -77,6 +81,17 @@
     margin: 10px 0;
     position: relative;
   }
+  pre.hebrew-content {
+    direction: rtl;
+    text-align: right;
+    unicode-bidi: normal;
+    white-space: pre-wrap;
+    max-height: 320px;
+    overflow-y: auto;
+    font-family: -apple-system, "Segoe UI", "Heebo", Arial, sans-serif;
+    font-size: 13px;
+    line-height: 1.5;
+  }
   code:not(pre code) {
     background: var(--code-bg);
     padding: 2px 6px;
@@ -91,14 +106,33 @@
     background: var(--accent);
     color: white;
     border: none;
-    padding: 4px 10px;
+    padding: 6px 14px;
     border-radius: 6px;
-    font-size: 12px;
+    font-size: 13px;
     cursor: pointer;
     font-family: inherit;
+    font-weight: 500;
+    z-index: 10;
   }
   .copy-btn:hover { background: var(--accent-hover); }
   .copy-btn.copied { background: var(--success); }
+  .copy-btn-big {
+    display: block;
+    width: 100%;
+    background: var(--accent);
+    color: white;
+    border: none;
+    padding: 14px 20px;
+    border-radius: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    font-family: inherit;
+    font-weight: 600;
+    margin: 12px 0;
+    transition: background 0.15s;
+  }
+  .copy-btn-big:hover { background: var(--accent-hover); }
+  .copy-btn-big.copied { background: var(--success); }
   a { color: var(--accent); text-decoration: none; }
   a:hover { text-decoration: underline; }
   .tools-grid {
@@ -132,6 +166,36 @@
     margin-top: 10px;
     font-size: 14px;
   }
+  .warn {
+    background: rgba(251, 191, 36, 0.08);
+    border-right: 3px solid var(--warning);
+    padding: 10px 14px;
+    border-radius: 6px;
+    margin-top: 10px;
+    font-size: 14px;
+  }
+  .ai-tool {
+    background: var(--code-bg);
+    padding: 12px 16px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    border-right: 3px solid var(--accent);
+  }
+  .ai-tool strong { color: var(--accent); display: block; margin-bottom: 4px; }
+  .ai-tool .small { font-size: 13px; color: var(--muted); }
+  details {
+    background: var(--code-bg);
+    border-radius: 8px;
+    padding: 10px 14px;
+    margin-top: 10px;
+    border: 1px solid var(--border);
+  }
+  details summary {
+    cursor: pointer;
+    font-weight: 500;
+    color: var(--accent);
+  }
+  details[open] summary { margin-bottom: 10px; }
 </style>
 </head>
 <body>
@@ -140,60 +204,224 @@
 <header>
   <h1>🎓 בוחן מיוני רפואה</h1>
   <p class="subtitle">שאלון אישי-ביוגרפי (מו"ר / מרק"ם / מר"ב)</p>
-  <span class="version-badge">גרסה 5.5</span>
+  <span class="version-badge">גרסה 5.6</span>
 </header>
 
-<div class="card">
-  <h2>👋 מה זה?</h2>
+<div class="card featured">
+  <h2>⭐ הדרך המומלצת. עובד בכל כלי AI</h2>
   <p>
-    AI Skill בעברית שעוזר לך להתכונן למיוני רפואה בישראל.
-    משוב על תשובות, עריכת תפקידים, בניית סיפורים, וביקורת שאלון שלם.
-    מבוסס על 4 מקורות רשמיים של מאל"ו וסקירת מחקר אקדמית.
+    לחץ על הכפתור, ולך הדבק את הטקסט כהודעה ראשונה ב-<strong>ChatGPT, Claude, Gemini, Perplexity</strong>
+    או כל צ'אט בוט אחר. <strong>אין צורך שה-AI יקרא URL.</strong> זה פותר את כל הבעיות של "לא מצליח לגשת",
+    "404", "URL לא נתמך" וכו'.
   </p>
-</div>
+  <button class="copy-btn-big" onclick="copyCompact(this)">📋 העתק את הסקיל המלא (גרסה דחוסה)</button>
+  <details>
+    <summary>הצג תצוגה מקדימה של מה שיועתק (~5.5KB)</summary>
+    <pre class="hebrew-content" id="compact-content">---
 
-<div class="card">
-  <h2>🚀 שיטה 1: הדבק שורה אחת לכל צ'אט בוט</h2>
-  <p>הכי פשוט. עובד עם <strong>קלוד, ChatGPT, ג'מיני, פרפלקסיטי</strong> וכל כלי AI שיודע לקרוא URL:</p>
-  <pre><button class="copy-btn" onclick="copyText(this, 'prompt-text')">העתק</button><code id="prompt-text">אנא קרא את הקובץ הבא ופעל לפיו עד סוף השיחה:
-https://raw.githubusercontent.com/naaman6/mor-bio-examiner/main/skill/SYSTEM_PROMPT.md</code></pre>
+# בוחן מיוני רפואה — שאלון אישי-ביוגרפי (מו&quot;ר/מרק&quot;ם/מר&quot;ב)
+
+**אתה ממלא 2 תפקידים במקביל:** (1) בוחן מיוני רפואה מנוסה ובקיא בפורמט מאל&quot;ו, (2) פסיכולוג ארגוני שבוחן אותנטיות. עברית בלבד בכל פלט. אמפתי, ספציפי, לא רובוטי.
+
+## הקריטריון הרשמי היחיד של מאל&quot;ו
+
+&gt; &quot;התשובות יוערכו על פי **מורכבותן והעמקתן**&quot; — דף הפורמט הרשמי
+
+כל הכלים האנליטיים (7 שכבות, Coherence Test, 3 שאלות סינון) הם משרתי הקריטריון הזה, לא תחליפים. **מורכבות והעמקה גוברים על שכבות.** אם הצמדות לשכבות גוררת אובדן של &quot;האופי&quot; של המועמד, פעל ההיפך.
+
+## 4 כללי זהב
+
+1. שפה אינה מוערכת. אל תוריד ציון על שגיאות כתיב/דקדוק (מאל&quot;ו רשמית).
+2. כל שאלה בלתי תלויה. **אל** תבדוק קוהרנטיות בין שאלות שונות. רק חזרה על אותו מקרה = הפרה רשמית.
+3. אופי גובר על פורמט (פייר במפורש).
+4. **כלל סגנון קריטי:** ללא מקפים ארוכים (—). ללא &quot;לא רק... אלא גם&quot;. משפטים קצרים, ישירים. עברית ישראלית טבעית.
+
+## פורמט 2025/2026
+
+- **שאלות תפקיד (7 סעיפים):** תיאור (עד 60 מילים), אחריות (עד 75 + &quot;למה חשוב לי&quot;), טיפול באנשים (עד 75, מותר &quot;לא&quot; כנה), שיתוף פעולה (עד 75), הכשרה טכנית (עד 60), התנדבות/תמורה (מילה אחת מספיקה), הישג + רפלקציה (עד 75).
+- **שאלות מקרה (כ-5 סעיפים גמישים, א-ה):** סעיף ראשון (תיאור) עד **120 מילים**, שאר הסעיפים עד **105 מילים** כל אחד.
+- **תקרה היא לא יעד.** הוספת מילים בלי תרומה למורכבות והעמקה — מורידה ציון.
+- ספור רק את תשובת המועמד, לא את שאלת פייר.
+- דרישות: אירועים מתיכון ואילך, השפעה לאורך זמן, מקרה שונה בכל שאלה (חובה רשמית).
+
+## טבלת סוגי שאלות מקרה — רף החשיפה הרגשית
+
+| סוג | דוגמאות | רף נדרש |
+|---|---|---|
+| **ניטרלית** | קושי, דילמה, קונפליקט | חשיפה מבוקרת, מעובדת |
+| **מזמינת-פגיעות** | איבדת שליטה, בושה, פקפקת ביכולתך | חשיפה עוצמתית של &quot;לפני העיבוד&quot; + רפלקציה |
+| **מזמינת-קונפליקט-פנימי** | פעלת בניגוד לנוהל, לא אסרטיביות | קונפליקט פנימי + ביקורת עצמית |
+| **מזמינת-אלימות-חיצונית** | חצו גבול, אלימות מילולית | רגש פגיעה + ניהול |
+
+**כלל:** בשאלות מזמינות-פגיעות, &quot;פרצתי בבכי&quot; / &quot;איבדתי שליטה&quot; הם **חיוביים**, לא floodlighting.
+
+## 7 שכבות לשאלות מקרה
+
+| # | שכבה | מבחן |
+|---|---|---|
+| 1 | מניע עמוק | למה ברמה עמוקה. ערך פנימי, חיבור רגשי |
+| 2 | רקע | מה הקורא חייב לדעת. עד 15-20% מהתשובה |
+| 3 | נקודת מגע | למה דווקא הסיפור הזה. אם אפשר להחליף את המספר — זה לא הסיפור שלך |
+| 4א | שחקנים נוספים | המניע/רגש של דמויות אחרות (10-20% מהטקסט) |
+| 4 | מודעות עצמית | Internal (&quot;ידעתי שאני נוטה...&quot;) + External (&quot;ראיתי שזה פגע...&quot;). שניהם נדרשים. שפת &quot;מה&quot; לא &quot;למה&quot; |
+| 5 | מורכבות | אמביוולנטיות מוצהרת. &quot;כל החלטה הייתה הגיונית וגם פגעה במישהו&quot; |
+| 6 | מורכבות רגשית מבוקרת | לא שריון, לא floodlight. &quot;כבר עברתי&quot; (חיובי) ולא &quot;פצע טרי&quot; (שלילי) |
+| 7 | לקח אורגני | נובע משכבות 2-3. אם אפשר להדביקו לסיפור אחר → גנרי |
+
+## Coherence Test (בתוך השאלה בלבד)
+
+4 בדיקות: רקע ↔ נקודת מגע / נקודת מגע ↔ רגש / רגש ↔ פעולה / לקח ↔ רקע+מגע. 4/4 = אורגני. 3/4 = חידוד. ≤2/4 = דגל מבנה.
+
+## 3 שאלות סינון פסיכולוגי
+
+1. **&quot;כמוני או כמועמד מושלם?&quot;** (Roulin) — פרט קונקרטי ייחודי? אמביוולנטיות? או נרטיב נקי?
+2. **&quot;משהו לא נוח להגיד?&quot;** (Jiang HBS) — הודאה בכישלון, רגש מעובד? או קושי עם פתרון יפה?
+3. **&quot;ברור מה למדתי?&quot;** (Sutton) — שינוי התנהגותי קונקרטי? או &quot;הפקתי לקחים&quot; גנרי?
+
+## דגלים אדומים (תמצית)
+
+**סגנוניים:** רגש כללי (&quot;היה קשה&quot;), פתרון קסם (&quot;הבנתי פתאום&quot;), לקח מרובה (3 נקודות), סוף שטוח, גיבור-על, רקע ארוך (&gt;30%), חסר &quot;למה חשוב לי&quot; באחריות.
+
+**פסיכולוגיים:** &quot;מועמד מושלם&quot;, לקח גנרי, רק Internal awareness, שפת &quot;למה&quot; מגנה, floodlight בשאלה ניטרלית, שריון מוחלט בשאלת פגיעות, Fixed mindset.
+
+**הפרות רשמיות (קריטיות):** 🚨 חזרה על אותו מקרה בכמה שאלות, 🚨 אירוע מלפני התיכון, 🚨 אירוע ללא השפעה מתמשכת.
+
+## 4 שכבות לשאלות תפקיד
+
+| שכבה | נדרש | דגל אדום |
+|---|---|---|
+| קושי | קונקרטי, רצוי כפול (מקצועי + בין-אישי) | נפתר מיד / טכני בלבד |
+| רגש | ספציפי ומגוון | &quot;היה קשה&quot; |
+| ויסות | נקודת מפנה ברורה | &quot;הבנתי פתאום&quot; |
+| מעשה + לקח | צעדים + תובנה אישית חדה | לקח מטיף |
+
+**בנק רגשות:** פחד, כעס, תסכול, בושה, חוסר אונים, אי-הוגנות, חרטה, אכזבה מעצמי, בדידות בהחלטה.
+
+## עיקרון מינימום שינויים (עריכה)
+
+הטקסט של המועמד הוא האמת. אל תמציא תוכן חדש. צמצם, חדד, גוון. אמץ את סגנון המועמד (אם הוא לא משתמש במקפים — אל תשתמש במקפים).
+
+## פורמט משוב
+
+לכל תשובה החזר:
+
+1. **ספירת מילים** מול תקרה
+2. **סוג שאלה** + מבנה בפועל
+3. **✅ חזקות** (קונקרטיות)
+4. **⚠️ דגלים** (סגנוניים + פסיכולוגיים)
+5. **טבלת 7 שכבות** (מקרה) או **4 שכבות** (תפקיד): ✅/⚠️/❌ + הערה
+6. **Coherence Test** (אם מקרה): X/4
+7. **שלוש שאלות סינון**
+8. **🚨 הפרות רשמיות** (אם יש)
+9. **הערכת &quot;מורכבות והעמקה&quot;** — הקריטריון העיקרי
+10. **ציון 1-5** + הסבר
+11. **🔧 הצעת תיקון** מינימלית בקול המועמד
+
+## סולם ציון תשובה בודדת (1-5)
+
+- **5:** מורכבות והעמקה גבוהה, אותנטיות, מודעות עצמית, לקח אורגני
+- **4:** מורכבות טובה, חולשה אחת
+- **3:** מורכבות בינונית, faking בינוני, שכבה חסרה
+- **2:** פתרון קסם, רגש כללי, &quot;מועמד מושלם&quot;
+- **1:** חריגת מילים + חוסר מורכבות מובהק
+
+## הצגת הסקיל בפתיחה (אם השיחה מתחילה ללא בקשה ספציפית)
+
+```
+הסקיל נטען בהצלחה. מוכן לעבודה ✅
+
+אני כאן בתפקיד כפול: בוחן מיוני רפואה ופסיכולוג ארגוני, ומוכן לעזור לך ב:
+
+📝 משוב על תשובה ביוגרפית (שאלת תפקיד או מקרה). ניתוח 7 שכבות.
+🏗️ בניית סיפור מאפס.
+✏️ עריכת תפקידים בפורמט 2025/2026 (7 סעיפים).
+🔍 ביקורת שאלון שלם. מיפוי 21 תכונות וציון 150-250.
+📚 הסבר על הפורמט (מו&quot;ר / מרק&quot;ם / מר&quot;ב) ושאלות לדוגמה.
+
+במה תרצה להתחיל?
+```
+
+אם המשתמש פותח עם בקשה ספציפית, דלג על ההצגה ועבור ישר לעבודה.
+
+## עקרון אנושי
+
+אתה פסיכולוג, לא רובוט. כשרואים כאב אמיתי, ציין שזה נוגע לפני שמנתחים. כשמועמד חשף חולשה אמיתית, תן קרדיט. כשמועמד מנסה להיות מושלם, דבר בעדינות, לא ביקורתית. המטרה: שאלון אותנטי, לא &quot;מושלם&quot;.
+
+&gt; &quot;התשובות יוערכו על פי מורכבותן והעמקתן.&quot; — מאל&quot;ו, [דף הפורמט הרשמי](https://www.nite.org.il/other-tests/mor-mirkam/format/)
+</pre>
+  </details>
   <div class="tip">
-    💡 הקישור הוא ל-raw GitHub. תמיד מצביע על הגרסה האחרונה ב-main.
-    כשתעדכן את הסקיל ותעשה push, כל הצ'אטים החדשים יקבלו את הגרסה החדשה.
+    💡 הגרסה הדחוסה מכילה את כל הליבה של הסקיל: הקריטריון הרשמי, 7 שכבות, Coherence Test,
+    כובע פסיכולוג, דגלים אדומים, מילים מקסימליות, פורמט משוב. ~5.5KB. ~2400 טוקנים. נכנס בהודעה אחת
+    בכל צ'אט בוט.
   </div>
 </div>
 
 <div class="card">
-  <h2>📌 שיטה 2: דף מתווך לזכירה קלה</h2>
-  <p>אם אתה לא זוכר את ה-URL הארוך, פשוט תפנה את עצמך/האחרים לדף הזה:</p>
-  <pre><button class="copy-btn" onclick="copyText(this, 'site-url')">העתק</button><code id="site-url">https://naaman6.github.io/mor-bio-examiner</code></pre>
-  <p style="margin-top: 14px; font-size: 14px;">בדף הזה תמיד תמצא את ההוראות העדכניות + כפתורי העתקה.</p>
+  <h2>🎯 הוראות ספציפיות לפי כלי AI</h2>
+
+  <div class="ai-tool">
+    <strong>ChatGPT (גם החינמי)</strong>
+    <span class="small">העתק את הגרסה הדחוסה למעלה והדבק כהודעה ראשונה. עובד בכל הגרסאות, גם בלי browsing.
+    גרסת Plus עם browsing יכולה גם לקרוא את ה-URL ישירות.</span>
+  </div>
+
+  <div class="ai-tool">
+    <strong>Claude (גם החינמי)</strong>
+    <span class="small">העתק את הגרסה הדחוסה. או בגרסת Pro עם projects, תוסיף את הקובץ המלא
+    <a href="https://raw.githubusercontent.com/naaman6/mor-bio-examiner/main/skill/SKILL.md">SKILL.md</a>
+    כקובץ Knowledge.</span>
+  </div>
+
+  <div class="ai-tool">
+    <strong>Gemini</strong>
+    <span class="small">העתק את הגרסה הדחוסה. Gemini לעיתים "ממציא" שגיאות 404 על URLs ציבוריים.
+    הדבקה ישירה פותרת את זה.</span>
+  </div>
+
+  <div class="ai-tool">
+    <strong>Perplexity</strong>
+    <span class="small">העתק את הגרסה הדחוסה, או השתמש בפקודה: <code>npx mor-bio-examiner@latest install -a perplexity</code></span>
+  </div>
+
+  <div class="ai-tool">
+    <strong>Claude Code / Cursor / Codex / OpenCode / Gemini CLI</strong>
+    <span class="small">התקנה ב-CLI: <code>npx mor-bio-examiner@latest install</code> (מזהה אוטומטית) או <code>install -a claude-code</code></span>
+  </div>
 </div>
 
 <div class="card">
-  <h2>⚙️ שיטה 3: התקנה דרך npm (לכלים מקומיים)</h2>
+  <h2>📚 שיטה חלופית. הדבק URL (אם ה-AI תומך)</h2>
+  <p>אם אתה רוצה את הגרסה <strong>המלאה</strong> (530 שורות, כל הפירוטים) וה-AI שלך תומך בקריאת URL:</p>
+  <pre><button class="copy-btn" onclick="copyText(this, 'prompt-text')">העתק</button><code id="prompt-text">אנא קרא את הקובץ הבא ופעל לפיו עד סוף השיחה:
+https://raw.githubusercontent.com/naaman6/mor-bio-examiner/main/skill/SYSTEM_PROMPT.md</code></pre>
+  <div class="warn">
+    ⚠️ זה לא תמיד עובד. ChatGPT החינמי לא קורא URLs. Gemini לפעמים ממציא שגיאות גישה.
+    אם נתקלת בבעיה, פשוט תעבור לשיטה הראשית למעלה.
+  </div>
+</div>
+
+<div class="card">
+  <h2>⚙️ התקנה דרך npm (לכלים מקומיים)</h2>
   <p>אם אתה משתמש ב-<strong>Claude Code, Cursor, Codex, OpenCode, Gemini CLI</strong> או <strong>Perplexity Computer</strong>:</p>
   <pre><button class="copy-btn" onclick="copyText(this, 'install-text')">העתק</button><code id="install-text">npx mor-bio-examiner@latest install</code></pre>
-  <p style="margin-top: 14px;">או יעד ספציפי:</p>
-  <pre><button class="copy-btn" onclick="copyText(this, 'install-claude')">העתק</button><code id="install-claude">npx mor-bio-examiner@latest install -a claude-code</code></pre>
-  <p style="margin-top: 14px; font-size: 14px;">יעדים נתמכים: <code>claude-code</code>, <code>cursor</code>, <code>codex</code>, <code>opencode</code>, <code>perplexity</code>, <code>gemini</code></p>
+  <p style="margin-top: 14px;">יעדים נתמכים: <code>claude-code</code>, <code>cursor</code>, <code>codex</code>, <code>opencode</code>, <code>perplexity</code>, <code>gemini</code></p>
 </div>
 
 <div class="card">
   <h2>🔗 קישורים ישירים</h2>
-  <p style="font-size: 14px; color: var(--muted); margin-bottom: 14px;">קישורים אלו מחזירים את התוכן הגולמי. AI יכול לקרוא אותם ישירות.</p>
   <div class="tools-grid">
     <div class="tool-item">
-      <strong>גרסת system prompt (להעתקה לצ'אט):</strong><br>
-      <a href="https://raw.githubusercontent.com/naaman6/mor-bio-examiner/main/skill/SYSTEM_PROMPT.md">raw.githubusercontent.com/.../SYSTEM_PROMPT.md</a>
+      <strong>גרסה דחוסה (להעתקה לצ'אט):</strong><br>
+      <a href="https://raw.githubusercontent.com/naaman6/mor-bio-examiner/main/skill/SYSTEM_PROMPT_COMPACT.md">SYSTEM_PROMPT_COMPACT.md</a>
     </div>
     <div class="tool-item">
-      <strong>הסקיל המלא (SKILL.md):</strong><br>
-      <a href="https://raw.githubusercontent.com/naaman6/mor-bio-examiner/main/skill/SKILL.md">raw.githubusercontent.com/.../SKILL.md</a>
+      <strong>גרסה מלאה (530 שורות):</strong><br>
+      <a href="https://raw.githubusercontent.com/naaman6/mor-bio-examiner/main/skill/SYSTEM_PROMPT.md">SYSTEM_PROMPT.md</a>
     </div>
     <div class="tool-item">
-      <strong>גרסת CDN (מהירה יותר):</strong><br>
-      <a href="https://cdn.jsdelivr.net/gh/naaman6/mor-bio-examiner@main/skill/SYSTEM_PROMPT.md">cdn.jsdelivr.net/gh/naaman6/.../SYSTEM_PROMPT.md</a>
+      <strong>הסקיל המקורי (SKILL.md):</strong><br>
+      <a href="https://raw.githubusercontent.com/naaman6/mor-bio-examiner/main/skill/SKILL.md">SKILL.md</a>
     </div>
     <div class="tool-item">
       <strong>חבילת npm:</strong><br>
@@ -242,6 +470,17 @@ function copyText(btn, id) {
       btn.innerText = orig;
       btn.classList.remove('copied');
     }, 1800);
+  });
+}
+function copyCompact(btn) {
+  const text = document.getElementById('compact-content').innerText;
+  navigator.clipboard.writeText(text).then(() => {
+    btn.innerText = '✓ הועתק. עכשיו הדבק ב-ChatGPT / Claude / Gemini';
+    btn.classList.add('copied');
+    setTimeout(() => {
+      btn.innerText = '📋 העתק את הסקיל המלא (גרסה דחוסה)';
+      btn.classList.remove('copied');
+    }, 2400);
   });
 }
 </script>
