@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>בוחן מיוני רפואה — שאלון אישי-ביוגרפי (מו"ר/מרק"ם/מר"ב)</title>
+<meta name="description" content="AI Skill בעברית לבחינת שאלון אישי-ביוגרפי במיוני רפואה בישראל. עובד עם קלוד, ChatGPT, ג'מיני ועוד.">
+<meta name="keywords" content="מור, מרקם, מרב, שאלון אישי-ביוגרפי, מיוני רפואה, ישראל, AI skill">
+
+<!-- Open Graph for previews -->
+<meta property="og:title" content="בוחן מיוני רפואה — שאלון אישי-ביוגרפי">
+<meta property="og:description" content="AI Skill בעברית לבחינת שאלון אישי-ביוגרפי במיוני רפואה. עובד עם כל כלי AI.">
+<meta property="og:type" content="website">
+
+<style>
+  :root {
+    --bg: #0f1419;
+    --card: #1a2128;
+    --text: #e6e6e6;
+    --muted: #8b9aa8;
+    --accent: #4a9eff;
+    --accent-hover: #6bb0ff;
+    --border: #2a3540;
+    --code-bg: #0a0e13;
+    --success: #4ade80;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, "Segoe UI", "Heebo", Arial, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    padding: 24px 16px 80px;
+  }
+  .container { max-width: 760px; margin: 0 auto; }
+  header { text-align: center; margin-bottom: 32px; }
+  h1 { font-size: 28px; margin-bottom: 8px; }
+  .subtitle { color: var(--muted); font-size: 16px; }
+  .version-badge {
+    display: inline-block;
+    background: var(--accent);
+    color: #fff;
+    padding: 2px 10px;
+    border-radius: 12px;
+    font-size: 13px;
+    margin-top: 10px;
+    font-weight: 500;
+  }
+  .card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 20px 22px;
+    margin-bottom: 18px;
+  }
+  .card h2 {
+    font-size: 18px;
+    margin-bottom: 12px;
+    color: var(--accent);
+  }
+  .card h2 .emoji { margin-left: 8px; }
+  .card p { margin-bottom: 10px; }
+  .card p:last-child { margin-bottom: 0; }
+  code, pre {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    direction: ltr;
+    text-align: left;
+    unicode-bidi: bidi-override;
+  }
+  pre {
+    background: var(--code-bg);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 12px 14px;
+    overflow-x: auto;
+    font-size: 14px;
+    margin: 10px 0;
+    position: relative;
+  }
+  code:not(pre code) {
+    background: var(--code-bg);
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 0.92em;
+    border: 1px solid var(--border);
+  }
+  .copy-btn {
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    background: var(--accent);
+    color: white;
+    border: none;
+    padding: 4px 10px;
+    border-radius: 6px;
+    font-size: 12px;
+    cursor: pointer;
+    font-family: inherit;
+  }
+  .copy-btn:hover { background: var(--accent-hover); }
+  .copy-btn.copied { background: var(--success); }
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .tools-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 8px;
+    margin-top: 12px;
+  }
+  .tool-item {
+    background: var(--code-bg);
+    padding: 10px 14px;
+    border-radius: 8px;
+    border-right: 3px solid var(--accent);
+    font-size: 14px;
+  }
+  .tool-item strong { color: var(--accent); }
+  ul { padding-right: 22px; margin: 8px 0; }
+  ul li { margin-bottom: 4px; }
+  footer {
+    text-align: center;
+    margin-top: 32px;
+    color: var(--muted);
+    font-size: 13px;
+  }
+  .footer-links a { margin: 0 8px; }
+  .tip {
+    background: rgba(74, 158, 255, 0.08);
+    border-right: 3px solid var(--accent);
+    padding: 10px 14px;
+    border-radius: 6px;
+    margin-top: 10px;
+    font-size: 14px;
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+<header>
+  <h1>🎓 בוחן מיוני רפואה</h1>
+  <p class="subtitle">שאלון אישי-ביוגרפי (מו"ר / מרק"ם / מר"ב)</p>
+  <span class="version-badge">גרסה 5.5</span>
+</header>
+
+<div class="card">
+  <h2>👋 מה זה?</h2>
+  <p>
+    AI Skill בעברית שעוזר לך להתכונן למיוני רפואה בישראל.
+    משוב על תשובות, עריכת תפקידים, בניית סיפורים, וביקורת שאלון שלם.
+    מבוסס על 4 מקורות רשמיים של מאל"ו וסקירת מחקר אקדמית.
+  </p>
+</div>
+
+<div class="card">
+  <h2>🚀 שיטה 1: הדבק שורה אחת לכל צ'אט בוט</h2>
+  <p>הכי פשוט. עובד עם <strong>קלוד, ChatGPT, ג'מיני, פרפלקסיטי</strong> וכל כלי AI שיודע לקרוא URL:</p>
+  <pre><button class="copy-btn" onclick="copyText(this, 'prompt-text')">העתק</button><code id="prompt-text">אנא קרא את הקובץ הבא ופעל לפיו עד סוף השיחה:
+https://naaman6.github.io/mor-bio-examiner/prompt</code></pre>
+  <div class="tip">
+    💡 הקישור <code>/prompt</code> תמיד מצביע על הגרסה האחרונה (5.5 כרגע).
+    כשתעדכן את הסקיל, כל הצ'אטים יקבלו אוטומטית את הגרסה החדשה.
+  </div>
+</div>
+
+<div class="card">
+  <h2>⚙️ שיטה 2: התקנה דרך npm (לכלים מקומיים)</h2>
+  <p>אם אתה משתמש ב-<strong>Claude Code, Cursor, Codex, OpenCode, Gemini CLI</strong> או <strong>Perplexity Computer</strong>:</p>
+  <pre><button class="copy-btn" onclick="copyText(this, 'install-text')">העתק</button><code id="install-text">npx mor-bio-examiner@latest install</code></pre>
+  <p style="margin-top: 14px;">או יעד ספציפי:</p>
+  <pre><button class="copy-btn" onclick="copyText(this, 'install-claude')">העתק</button><code id="install-claude">npx mor-bio-examiner@latest install -a claude-code</code></pre>
+  <p style="margin-top: 14px; font-size: 14px;">יעדים נתמכים: <code>claude-code</code>, <code>cursor</code>, <code>codex</code>, <code>opencode</code>, <code>perplexity</code>, <code>gemini</code></p>
+</div>
+
+<div class="card">
+  <h2>🔗 קישורים ישירים (URLs קצרים)</h2>
+  <div class="tools-grid">
+    <div class="tool-item">
+      <strong>הסקיל המלא (SKILL.md):</strong><br>
+      <code>https://naaman6.github.io/mor-bio-examiner/skill</code>
+    </div>
+    <div class="tool-item">
+      <strong>גרסת system prompt (להעתקה):</strong><br>
+      <code>https://naaman6.github.io/mor-bio-examiner/prompt</code>
+    </div>
+    <div class="tool-item">
+      <strong>הוראות התקנה:</strong><br>
+      <code>https://naaman6.github.io/mor-bio-examiner/install</code>
+    </div>
+    <div class="tool-item">
+      <strong>חבילת npm:</strong><br>
+      <a href="https://www.npmjs.com/package/mor-bio-examiner">npmjs.com/package/mor-bio-examiner</a>
+    </div>
+    <div class="tool-item">
+      <strong>מקור בגיטהאב:</strong><br>
+      <a href="https://github.com/naaman6/mor-bio-examiner">github.com/naaman6/mor-bio-examiner</a>
+    </div>
+  </div>
+</div>
+
+<div class="card">
+  <h2>📚 מה הסקיל יודע לעשות?</h2>
+  <ul>
+    <li>📝 משוב על תשובה ביוגרפית (שאלת תפקיד או מקרה) עם ניתוח 7 שכבות, Coherence Test, ואינדיקטורי אותנטיות</li>
+    <li>🏗️ בניית סיפור מאפס. חקירה, עיצוב, ניסוח</li>
+    <li>✏️ עריכת תפקידים בפורמט 2025/2026 (7 סעיפים), מינימום שינויים</li>
+    <li>🔍 ביקורת שאלון שלם. מיפוי 21 תכונות וציון 150-250</li>
+    <li>🤖 AI Council. סינתזה מ-3 מומחים במקביל</li>
+    <li>📚 הסבר על הפורמט ושאלות לדוגמה</li>
+  </ul>
+</div>
+
+<footer>
+  <div class="footer-links">
+    <a href="https://github.com/naaman6/mor-bio-examiner">GitHub</a>
+    ·
+    <a href="https://www.npmjs.com/package/mor-bio-examiner">npm</a>
+    ·
+    <a href="https://github.com/naaman6/mor-bio-examiner/blob/main/skill/CHANGELOG.md">Changelog</a>
+  </div>
+  <p style="margin-top: 12px;">נכתב ע"י naaman6. רישיון MIT.</p>
+</footer>
+
+</div>
+
+<script>
+function copyText(btn, id) {
+  const text = document.getElementById(id).innerText;
+  navigator.clipboard.writeText(text).then(() => {
+    const orig = btn.innerText;
+    btn.innerText = '✓ הועתק';
+    btn.classList.add('copied');
+    setTimeout(() => {
+      btn.innerText = orig;
+      btn.classList.remove('copied');
+    }, 1800);
+  });
+}
+</script>
+</body>
+</html>
