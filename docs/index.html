@@ -156,15 +156,22 @@
   <h2>🚀 שיטה 1: הדבק שורה אחת לכל צ'אט בוט</h2>
   <p>הכי פשוט. עובד עם <strong>קלוד, ChatGPT, ג'מיני, פרפלקסיטי</strong> וכל כלי AI שיודע לקרוא URL:</p>
   <pre><button class="copy-btn" onclick="copyText(this, 'prompt-text')">העתק</button><code id="prompt-text">אנא קרא את הקובץ הבא ופעל לפיו עד סוף השיחה:
-https://naaman6.github.io/mor-bio-examiner/prompt</code></pre>
+https://raw.githubusercontent.com/naaman6/mor-bio-examiner/main/skill/SYSTEM_PROMPT.md</code></pre>
   <div class="tip">
-    💡 הקישור <code>/prompt</code> תמיד מצביע על הגרסה האחרונה (5.5 כרגע).
-    כשתעדכן את הסקיל, כל הצ'אטים יקבלו אוטומטית את הגרסה החדשה.
+    💡 הקישור הוא ל-raw GitHub. תמיד מצביע על הגרסה האחרונה ב-main.
+    כשתעדכן את הסקיל ותעשה push, כל הצ'אטים החדשים יקבלו את הגרסה החדשה.
   </div>
 </div>
 
 <div class="card">
-  <h2>⚙️ שיטה 2: התקנה דרך npm (לכלים מקומיים)</h2>
+  <h2>📌 שיטה 2: דף מתווך לזכירה קלה</h2>
+  <p>אם אתה לא זוכר את ה-URL הארוך, פשוט תפנה את עצמך/האחרים לדף הזה:</p>
+  <pre><button class="copy-btn" onclick="copyText(this, 'site-url')">העתק</button><code id="site-url">https://naaman6.github.io/mor-bio-examiner</code></pre>
+  <p style="margin-top: 14px; font-size: 14px;">בדף הזה תמיד תמצא את ההוראות העדכניות + כפתורי העתקה.</p>
+</div>
+
+<div class="card">
+  <h2>⚙️ שיטה 3: התקנה דרך npm (לכלים מקומיים)</h2>
   <p>אם אתה משתמש ב-<strong>Claude Code, Cursor, Codex, OpenCode, Gemini CLI</strong> או <strong>Perplexity Computer</strong>:</p>
   <pre><button class="copy-btn" onclick="copyText(this, 'install-text')">העתק</button><code id="install-text">npx mor-bio-examiner@latest install</code></pre>
   <p style="margin-top: 14px;">או יעד ספציפי:</p>
@@ -173,19 +180,20 @@ https://naaman6.github.io/mor-bio-examiner/prompt</code></pre>
 </div>
 
 <div class="card">
-  <h2>🔗 קישורים ישירים (URLs קצרים)</h2>
+  <h2>🔗 קישורים ישירים</h2>
+  <p style="font-size: 14px; color: var(--muted); margin-bottom: 14px;">קישורים אלו מחזירים את התוכן הגולמי. AI יכול לקרוא אותם ישירות.</p>
   <div class="tools-grid">
     <div class="tool-item">
+      <strong>גרסת system prompt (להעתקה לצ'אט):</strong><br>
+      <a href="https://raw.githubusercontent.com/naaman6/mor-bio-examiner/main/skill/SYSTEM_PROMPT.md">raw.githubusercontent.com/.../SYSTEM_PROMPT.md</a>
+    </div>
+    <div class="tool-item">
       <strong>הסקיל המלא (SKILL.md):</strong><br>
-      <code>https://naaman6.github.io/mor-bio-examiner/skill</code>
+      <a href="https://raw.githubusercontent.com/naaman6/mor-bio-examiner/main/skill/SKILL.md">raw.githubusercontent.com/.../SKILL.md</a>
     </div>
     <div class="tool-item">
-      <strong>גרסת system prompt (להעתקה):</strong><br>
-      <code>https://naaman6.github.io/mor-bio-examiner/prompt</code>
-    </div>
-    <div class="tool-item">
-      <strong>הוראות התקנה:</strong><br>
-      <code>https://naaman6.github.io/mor-bio-examiner/install</code>
+      <strong>גרסת CDN (מהירה יותר):</strong><br>
+      <a href="https://cdn.jsdelivr.net/gh/naaman6/mor-bio-examiner@main/skill/SYSTEM_PROMPT.md">cdn.jsdelivr.net/gh/naaman6/.../SYSTEM_PROMPT.md</a>
     </div>
     <div class="tool-item">
       <strong>חבילת npm:</strong><br>
