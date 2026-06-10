@@ -242,6 +242,47 @@
   }
   details[open] summary { margin-bottom: 10px; }
   .hidden-data { display: none; }
+
+  /* Contact grid for credit card */
+  .contact-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 10px;
+  }
+  .contact-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: var(--code-bg);
+    padding: 12px 14px;
+    border-radius: 8px;
+    border: 1px solid var(--border);
+    text-decoration: none;
+    color: var(--text);
+    transition: all 0.15s;
+  }
+  .contact-item:hover {
+    border-color: var(--accent);
+    background: rgba(74, 158, 255, 0.06);
+    text-decoration: none;
+  }
+  .contact-icon {
+    font-size: 22px;
+    flex-shrink: 0;
+  }
+  .contact-item strong {
+    display: block;
+    color: var(--accent);
+    font-size: 14px;
+    margin-bottom: 2px;
+  }
+  .contact-val {
+    color: var(--muted);
+    font-size: 12.5px;
+    direction: ltr;
+    unicode-bidi: embed;
+    display: block;
+  }
 </style>
 </head>
 <body>
@@ -539,6 +580,18 @@
 </div>
 
 <div class="card">
+  <h2>📚 מה הסקיל יודע לעשות?</h2>
+  <ul>
+    <li>📝 משוב על תשובה ביוגרפית (שאלת תפקיד או מקרה) עם ניתוח 7 שכבות, Coherence Test, ואינדיקטורי אותנטיות</li>
+    <li>🏗️ בניית סיפור מאפס. חקירה, עיצוב, ניסוח</li>
+    <li>✏️ עריכת תפקידים בפורמט 2025/2026 (7 סעיפים), מינימום שינויים</li>
+    <li>🔍 ביקורת שאלון שלם. מיפוי 21 תכונות וציון 150-250</li>
+    <li>🤖 AI Council. סינתזה מ-3 מומחים במקביל</li>
+    <li>📚 הסבר על הפורמט ושאלות לדוגמה</li>
+  </ul>
+</div>
+
+<div class="card">
   <h2>🎯 הוראות ספציפיות לפי כלי AI</h2>
 
   <div class="ai-tool">
@@ -630,15 +683,41 @@ https://raw.githubusercontent.com/naaman6/mor-bio-examiner/main/skill/SYSTEM_PRO
 </div>
 
 <div class="card">
-  <h2>📚 מה הסקיל יודע לעשות?</h2>
-  <ul>
-    <li>📝 משוב על תשובה ביוגרפית (שאלת תפקיד או מקרה) עם ניתוח 7 שכבות, Coherence Test, ואינדיקטורי אותנטיות</li>
-    <li>🏗️ בניית סיפור מאפס. חקירה, עיצוב, ניסוח</li>
-    <li>✏️ עריכת תפקידים בפורמט 2025/2026 (7 סעיפים), מינימום שינויים</li>
-    <li>🔍 ביקורת שאלון שלם. מיפוי 21 תכונות וציון 150-250</li>
-    <li>🤖 AI Council. סינתזה מ-3 מומחים במקביל</li>
-    <li>📚 הסבר על הפורמט ושאלות לדוגמה</li>
-  </ul>
+  <h2>👤 על הסקיל</h2>
+  <p style="margin-bottom: 14px;">
+    סקיל <strong>"בוחן מיוני רפואה"</strong> נוצר ופותח על ידי <strong>נעמן רוזנפלד</strong>.
+    לפניות, הצעות, בקשות ותיקונים:
+  </p>
+  <div class="contact-grid">
+    <a class="contact-item" href="mailto:naaman6@gmail.com">
+      <span class="contact-icon">✉️</span>
+      <div>
+        <strong>אימייל</strong>
+        <span class="contact-val">naaman6@gmail.com</span>
+      </div>
+    </a>
+    <a class="contact-item" href="https://m.me/naaman6" target="_blank" rel="noopener">
+      <span class="contact-icon">💬</span>
+      <div>
+        <strong>Messenger</strong>
+        <span class="contact-val">m.me/naaman6</span>
+      </div>
+    </a>
+    <a class="contact-item" href="https://ig.me/m/naaman6" target="_blank" rel="noopener">
+      <span class="contact-icon">📷</span>
+      <div>
+        <strong>Instagram</strong>
+        <span class="contact-val">ig.me/m/naaman6</span>
+      </div>
+    </a>
+    <a class="contact-item" href="https://github.com/naaman6" target="_blank" rel="noopener">
+      <span class="contact-icon">🐙</span>
+      <div>
+        <strong>GitHub</strong>
+        <span class="contact-val">github.com/naaman6</span>
+      </div>
+    </a>
+  </div>
 </div>
 
 <footer>
@@ -649,7 +728,7 @@ https://raw.githubusercontent.com/naaman6/mor-bio-examiner/main/skill/SYSTEM_PRO
     ·
     <a href="https://github.com/naaman6/mor-bio-examiner/blob/main/skill/CHANGELOG.md">Changelog</a>
   </div>
-  <p style="margin-top: 12px;">נכתב ע"י naaman6. רישיון MIT.</p>
+  <p style="margin-top: 12px;">נכתב ופותח ע"י <strong style="color: var(--accent);">נעמן רוזנפלד</strong>. רישיון MIT.</p>
 </footer>
 
 </div>
