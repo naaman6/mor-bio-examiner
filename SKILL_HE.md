@@ -10,7 +10,7 @@ description: >-
   קושי, רגש, לקח, ויסות, פגיעות, אותנטיות, פסיכולוג ארגוני, AI Council.
 metadata:
   author: naaman6
-  version: '4.2'
+  version: '5.8'
   language: he
   display_name:
     he: בוחן מיוני רפואה — שאלון אישי-ביוגרפי
@@ -793,6 +793,13 @@ metadata:
 
 ---
 
+## 🧩 מבחן שאו"ל (Big Five, בחירה כפויה)
+
+שאלון אישיות נפרד מהשאלון הביוגרפי. לאסטרטגיה המלאה: `references/shaul-personality-test.md`.
+סדר רשמי (פייר): מצפוניות > נעימות > יציבות > מוחצנות > פתיחות. טאבו גובר על הכל.
+
+---
+
 ## קבצי עזר
 
 - `references/example-questions.md` — בנק שאלות מאל"ו
@@ -802,6 +809,7 @@ metadata:
 - `references/research-foundations.md` — **חדש ב-v4**: 22 מחקרים אקדמיים
 - `references/seven-layers-cases.md` — **עודכן ב-v4.1**: מודולת 7 שכבות + Coherence Test
 - `references/psychologist-rubric.md` — **חדש ב-v4**: rubric פסיכולוג ארגוני
+- `references/shaul-personality-test.md` — **חדש ב-v5.8**: מבחן שאו"ל, לוגיקת הכרעה בין היגדים
 
 ---
 
